@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./typography.css";
+@import "./buttons.css";
+
+:root {
+  --color-deep-violet: #440a5f;
+  --color-rebecca-purple: #6a3190;
+  --color-golden-poppy: #fbc200;
+  --color-bright-gray: #e9edf3;
+  --color-light-silver: #d2dae0;
+  --color-lavender-gray: #bfc6cd;
+
+  --foreground-rgb: 255, 255, 255;
+  --background-color: var(--color-bright-silver);
+  --font-color: var(--color-deep-violet)
+}
+
+body {
+  color: rgb(var(--font-color));
+  background-color: var(--background-color);
+  @apply text-base antialiased min-h-screen flex flex-col justify-center items-center;
+}
+
+.input {
+  width: 100%; /* Ancho completo */
+  padding: 0.75rem; /* Relleno */
+  border: 1px solid var(--color-light-silver); /* Borde sólido */
+  border-radius: 9999px; /* Borde redondeado para simular un botón */
+  outline: none; /* Quita el contorno al enfocar */
+}
+
+.input:focus {
+  border-color: var(--color-golden-poppy); /* Cambia el color del borde al enfocar */
+}

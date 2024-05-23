@@ -1,0 +1,15 @@
+.btn {
+  @apply w-full p-3 text-white rounded-full transition-colors;
+  background-color: var(--color-rebecca-purple);
+  &:hover {
+    background-color: var(--color-deep-violet);
+  }
+}
+
+.btn-secondary {
+  @apply w-full p-3 text-white rounded-full transition-colors;
+  background-color: var(--color-rebecca-purple);
+  &:hover {
+    background-color: darken(var(--color-rebecca-purple), 10%);
+  }
+}
