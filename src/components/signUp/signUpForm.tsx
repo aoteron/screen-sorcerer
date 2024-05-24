@@ -18,6 +18,7 @@ export const SignUpForm = ({ initialEmail = '' }: SignUpFormProps) => {
   }, [initialEmail]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(`Changing ${e.target.name} to ${e.target.value}`); // Debugging
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -26,8 +27,9 @@ export const SignUpForm = ({ initialEmail = '' }: SignUpFormProps) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log('Submitting form data:', formData); // Debugging
     try {
-      const response = await fetch('/api/user/signup', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,6 +39,7 @@ export const SignUpForm = ({ initialEmail = '' }: SignUpFormProps) => {
       if (!response.ok) {
         throw new Error('Failed to create user');
       }
+      console.log('User created successfully'); // Debugging
     } catch (error) {
       console.error('Error creating user:', error);
     }
