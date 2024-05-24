@@ -2,7 +2,7 @@ import '../styles/globals.css';
 
 export default function HomePage() {
   return (
-    <div className="dashboard-container">
+    <div className="main-content">
       <main>
         <section>
           <h1>Welcome to Your Dashboard</h1>

@@ -6,7 +6,6 @@
 @import "./buttons.css";
 @import "./header.css";
 @import "./footer.css";
-@import "./dashboard.css";
 
 :root {
   --color-deep-violet: #440a5f;
@@ -24,7 +23,15 @@
 body {
   color: rgb(var(--font-color));
   background-color: var(--background-color);
-  @apply text-base antialiased min-h-screen flex flex-col justify-center items-center;
+  @apply text-base antialiased min-h-screen flex flex-col;
+}
+
+.main-content {
+  height: 82.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @apply flex-grow
 }
 
 .input {

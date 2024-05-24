@@ -4,9 +4,9 @@ import '../../app/styles/footer.css';
 
 export const Footer = () => {
   return (
-    <footer className="footer-bg py-4 w-full">
-      <div className="container mx-auto footer-container">
-        <p className="text-center text-sm">
+    <footer className="footer-container">
+      <div className="footer-content">
+        <p className="footer-text">
           &copy; 2024 Screen Sorcerer. All rights reserved.
         </p>
         <nav className="flex justify-center space-x-4 mt-2">
