@@ -4,6 +4,9 @@
 
 @import "./typography.css";
 @import "./buttons.css";
+@import "./header.css";
+@import "./footer.css";
+@import "./dashboard.css";
 
 :root {
   --color-deep-violet: #440a5f;
@@ -15,7 +18,7 @@
 
   --foreground-rgb: 255, 255, 255;
   --background-color: var(--color-bright-silver);
-  --font-color: var(--color-deep-violet)
+  --font-color: var(--color-deep-violet);
 }
 
 body {
@@ -25,13 +28,23 @@ body {
 }
 
 .input {
-  width: 100%; /* Ancho completo */
-  padding: 0.75rem; /* Relleno */
-  border: 1px solid var(--color-light-silver); /* Borde sólido */
-  border-radius: 9999px; /* Borde redondeado para simular un botón */
-  outline: none; /* Quita el contorno al enfocar */
+  width: 100%; 
+  padding: 0.75rem; 
+  border: 1px solid var(--color-light-silver); 
+  border-radius: 9999px; 
+  outline: none; 
 }
 
 .input:focus {
-  border-color: var(--color-golden-poppy); /* Cambia el color del borde al enfocar */
+  border-color: var(--color-golden-poppy); 
+}
+
+body {
+  color: rgb(var(--font-color));
+  background-color: var(--background-color);
+  @apply text-base antialiased min-h-screen flex flex-col;
+}
+
+.main-content {
+  @apply flex-1;
 }

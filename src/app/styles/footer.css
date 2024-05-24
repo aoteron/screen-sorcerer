@@ -1,0 +1,13 @@
+.footer-container {
+    @apply flex flex-col items-center;
+  }
+  
+  .footer-bg {
+    color: rgb(31, 41, 55);
+  }
+  
+  .footer-link {
+    @apply hover:text-yellow-500;
+    font-size: 0.875rem;
+  }
+  
