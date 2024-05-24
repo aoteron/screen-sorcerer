@@ -1,0 +1,17 @@
+.header-container {
+    @apply flex justify-between items-center px-4;
+  }
+  
+  .header-link {
+    @apply text-2xl font-bold;
+  }
+  
+  .nav-link {
+    @apply hover:text-yellow-500;
+  }
+  
+  .header-bg {
+    background-color: var(--color-deep-violet); 
+    color: rgb(var(--foreground-rgb));
+  }  
+  

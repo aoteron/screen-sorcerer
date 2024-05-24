@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./typography.css";
+@import "./buttons.css";
+@import "./header.css";
+@import "./footer.css";
+
+:root {
+  --color-deep-violet: #440a5f;
+  --color-rebecca-purple: #6a3190;
+  --color-golden-poppy: #fbc200;
+  --color-bright-gray: #e9edf3;
+  --color-light-silver: #d2dae0;
+  --color-lavender-gray: #bfc6cd;
+
+  --foreground-rgb: 255, 255, 255;
+  --background-color: var(--color-bright-silver);
+  --font-color: var(--color-deep-violet);
+}
+
+body {
+  color: rgb(var(--font-color));
+  background-color: var(--background-color);
+  @apply text-base antialiased min-h-screen flex flex-col;
+}
+
+.main-content {
+  height: 82.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @apply flex-grow
+}
+
+.input {
+  width: 100%; 
+  padding: 0.75rem; 
+  border: 1px solid var(--color-light-silver); 
+  border-radius: 9999px; 
+  outline: none; 
+}
+
+.input:focus {
+  border-color: var(--color-golden-poppy); 
+}
+
+body {
+  color: rgb(var(--font-color));
+  background-color: var(--background-color);
+  @apply text-base antialiased min-h-screen flex flex-col;
+}
+
+.main-content {
+  @apply flex-1;
+}

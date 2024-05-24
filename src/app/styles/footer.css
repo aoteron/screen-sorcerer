@@ -1,0 +1,25 @@
+.footer-container {
+    @apply text-gray-400 py-4;
+  }
+  
+  .footer-bg {
+    color: rgb(31, 41, 55);
+  }
+  
+  .footer-content {
+    @apply container mx-auto text-center;
+  }
+  
+  .footer-text {
+    @apply text-sm;
+  }
+  
+  .footer-nav {
+    @apply flex justify-center space-x-4 mt-2;
+  }
+
+  .footer-link {
+    @apply hover:text-yellow-500;
+    font-size: 0.875rem;
+  }
+  
