@@ -1,9 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import '../../app/styles/header.css'; // Importación de estilos desde la ruta correcta
+import '../../app/styles/header.css'; 
 
 export const Header = () => {
+  const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('isLoggedIn') === 'true';
+
   return (
     <header className="header-bg py-4 w-full">
       <div className="container mx-auto header-container">
@@ -17,11 +19,8 @@ export const Header = () => {
           <span className="header-link">Screen Sorcerer</span>
         </Link>
         <nav className="space-x-4">
-          <Link href="/" className="nav-link">
-            Home
-          </Link>
-          <Link href="/movies" className="nav-link">
-            Movies
+          <Link href={isLoggedIn ? '/home' : '/login'} className="nav-link">
+            {isLoggedIn ? 'Home' : 'Login'}
           </Link>
         </nav>
       </div>

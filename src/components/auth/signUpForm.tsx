@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface SignUpFormProps {
   initialEmail?: string;
@@ -12,6 +13,8 @@ export const SignUpForm = ({ initialEmail = '' }: SignUpFormProps) => {
     email: initialEmail,
     password: '',
   });
+
+  const router = useRouter();
 
   useEffect(() => {
     setFormData((formData) => ({ ...formData, email: initialEmail }));
@@ -29,17 +32,23 @@ export const SignUpForm = ({ initialEmail = '' }: SignUpFormProps) => {
     e.preventDefault();
     console.log('Submitting form data:', formData); // Debugging
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/signup`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/user/signup`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       if (!response.ok) {
         throw new Error('Failed to create user');
       }
       console.log('User created successfully'); // Debugging
+
+      localStorage.setItem('isLoggedIn', 'true');
+      router.push('/home');
     } catch (error) {
       console.error('Error creating user:', error);
     }

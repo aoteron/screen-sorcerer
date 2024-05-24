@@ -1,50 +1,34 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { handleEmailChange, handleSubmit } from '@/services/authUtils';
+import { WelcomePage } from '../components/welcome/welcome';
 
 export default function App() {
+  
   const [email, setEmail] = useState('');
   const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
+  useEffect(() => {
+    const checkAuthentication = () => {
+      const loggedIn = localStorage.getItem('isLoggedIn');
+      setIsLoggedIn(!!loggedIn);
+    };
+    checkAuthentication();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    router.push(`/signup?email=${encodeURIComponent(email)}`);
-  };
+    if (isLoggedIn) {
+      router.push('/home');
+    }
+  }, [isLoggedIn, router]);
 
   return (
-    <main className="main-content flex flex-col items-center justify-center p-6">
-      <h1 className="text-3xl font-bold text-center mb-6">Welcome!</h1>
-
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col items-center justify-center w-full max-w-xs p-6 space-y-4 rounded-lg"
-      >
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="input"
-          value={email}
-          onChange={handleEmailChange}
-        />
-        <button type="submit" className="btn">
-          Sign up
-        </button>
-      </form>
-
-      <p className="text-center mt-6">
-        Already have an account?{' '}
-        <Link href="/sign-in">
-          <span className="text-rebecca-purple hover:underline cursor-pointer">
-            Sign in
-          </span>
-        </Link>
-      </p>
-    </main>
+    <WelcomePage
+      email={email}
+      handleEmailChange={(e) => handleEmailChange(e, setEmail)}
+      handleSubmit={(e) => handleSubmit(e, email, router)}
+      router={router}
+    />
   );
 }
