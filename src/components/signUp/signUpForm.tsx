@@ -1,13 +1,21 @@
-"use client";
+'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export const SignUpForm = () => {
+interface SignUpFormProps {
+  initialEmail?: string;
+}
+
+export const SignUpForm = ({ initialEmail = '' }: SignUpFormProps) => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
+    email: initialEmail,
     password: '',
   });
+
+  useEffect(() => {
+    setFormData((formData) => ({ ...formData, email: initialEmail }));
+  }, [initialEmail]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -35,7 +43,10 @@ export const SignUpForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col space-y-4 bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col space-y-4 bg-white p-6 rounded-lg shadow-md max-w-md mx-auto"
+    >
       <input
         type="text"
         name="name"
@@ -60,7 +71,9 @@ export const SignUpForm = () => {
         onChange={handleChange}
         className="input"
       />
-      <button type="submit" className="btn">Sign Up</button>
+      <button type="submit" className="btn">
+        Sign Up
+      </button>
     </form>
   );
 };
