@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -6,7 +6,6 @@ import { handleEmailChange, handleSubmit } from '@/services/authUtils';
 import { WelcomePage } from '../components/welcome/welcome';
 
 export default function App() {
-  
   const [email, setEmail] = useState('');
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);

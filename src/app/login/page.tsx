@@ -1,5 +1,5 @@
 'use client';
-import LoginForm from '@/components/auth/signInForm';
+import LoginForm from '@/components/auth/loginForm';
 import { useSearchParams } from 'next/navigation';
 
 export default function LoginPage() {

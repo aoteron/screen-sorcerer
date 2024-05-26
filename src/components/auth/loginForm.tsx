@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 'use client';
 
 import { useState } from 'react';
@@ -13,7 +14,7 @@ export const LoginForm = ({ initialEmail = '' }: LoginFormProps) => {
     password: '',
   });
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('')
+  const [error, setError] = useState('');
 
   const router = useRouter();
 
@@ -39,17 +40,26 @@ export const LoginForm = ({ initialEmail = '' }: LoginFormProps) => {
         }
       );
       const data = await response.json();
+
       if (!response.ok) {
         throw new Error(data.message || 'Login failed');
       }
-      
+
+      console.log('Login response data:', data); // Para verificar la estructura de la respuesta
+
+      if (data && data.user && data.user.id) {
+        localStorage.setItem('userId', data.user.id);
+      } else {
+        console.error('User ID not found in the response');
+      }
+
       localStorage.setItem('isLoggedIn', 'true');
       router.push('/home');
     } catch (error) {
       console.error('Error logging in:', error);
-      setError('Login failed. Please check your credentials and try again')
+      setError('Login failed. Please check your credentials and try again');
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -77,9 +87,9 @@ export const LoginForm = ({ initialEmail = '' }: LoginFormProps) => {
         disabled={loading}
       />
       <button type="submit" className="btn" disabled={loading}>
-      {loading ? 'Logging in...' : 'Login'}
+        {loading ? 'Logging in...' : 'Login'}
       </button>
-      {error && <p className='error'>{error}</p>}
+      {error && <p className="error">{error}</p>}
     </form>
   );
 };

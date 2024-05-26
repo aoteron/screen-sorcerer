@@ -14,14 +14,13 @@ export const WelcomePage = ({
   handleSubmit,
   router,
 }: WelcomePageProps) => {
-
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const emailExists = await checkIfEmailExists(email);
     if (emailExists) {
       router.push(`/login?email=${encodeURIComponent(email)}`);
     } else {
-      handleSubmit(e, email); 
+      handleSubmit(e, email);
     }
   };
 

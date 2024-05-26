@@ -1,5 +1,6 @@
 .btn {
-  @apply w-full p-3 text-white rounded-full transition-colors flex justify-center items-center; /* Añadir flex, justify-center, items-center */
+  @apply w-full p-3 text-white transition-colors flex justify-center items-center;
+  border-radius: 0.375rem;
   background-color: var(--color-rebecca-purple);
   &:hover {
     background-color: var(--color-deep-violet);
@@ -7,7 +8,8 @@
 }
 
 .btn-secondary {
-  @apply w-full p-3 text-white rounded-full transition-colors flex justify-center items-center; 
+  @apply w-full p-3 text-white transition-colors flex justify-center items-center; 
+  border-radius: 0.375rem;
   background-color: var(--color-rebecca-purple);
   &:hover {
     background-color: darken(var(--color-rebecca-purple), 10%);

@@ -23,7 +23,7 @@
 body {
   color: rgb(var(--font-color));
   background-color: var(--background-color);
-  @apply text-base antialiased min-h-screen flex flex-col;
+  @apply antialiased min-h-screen flex flex-col;
 }
 
 .main-content {
@@ -31,20 +31,33 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  @apply flex-grow
+  @apply flex-grow;
 }
 
 .input {
-  width: 100%; 
-  padding: 0.75rem; 
-  border: 1px solid var(--color-light-silver); 
-  border-radius: 9999px; 
-  outline: none; 
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-light-silver);
+  border-radius: 0.375rem;
+  outline: none;
+  @apply text-sm;
 }
 
 .input:focus {
-  border-color: var(--color-golden-poppy); 
+  border-color: var(--color-golden-poppy);
 }
+
+.file-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-name {
+  margin-top: 0.5rem;
+  color: var(--color-light-silver);
+}
+
+
 
 body {
   color: rgb(var(--font-color));

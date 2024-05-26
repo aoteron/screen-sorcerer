@@ -1,10 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import '../../app/styles/header.css'; 
+import '../../app/styles/header.css';
 
 export const Header = () => {
-  const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('isLoggedIn') === 'true';
+  const isLoggedIn =
+    typeof window !== 'undefined' &&
+    localStorage.getItem('isLoggedIn') === 'true';
 
   return (
     <header className="header-bg py-4 w-full">
